@@ -1,38 +1,38 @@
 import React from 'react'
-import facepaint from 'facepaint'
+import Flexoid from '../flexoid'
 
-import Flexoid from '@flexoid/flexoid-react'
-
-const mq = facepaint([
-  '@media(min-width: 420px)',
-  '@media(min-width: 920px)',
-  '@media(min-width: 1120px)',
-])
+import BREAKPOINTS from './settings/breakpoints'
 
 export default function App() {
   return (
     <div>
-      <Flexoid.Block justify="flex-end">
-        <Flexoid.Cell
-          size={mq({
-            size: [1 / 12, 2 / 12, 3 / 12, 4 / 12],
-          })}
+      <Flexoid.Block
+        justify={{
+          [BREAKPOINTS.sm]: { justify: 'center' },
+          [BREAKPOINTS.md]: { justify: 'flex-end' },
+        }}
+      >
+        <Flexoid.Box
+          width={{
+            width: 1 / 12,
+            [BREAKPOINTS.sm]: { width: 2 / 12 },
+            [BREAKPOINTS.md]: { width: 3 / 12 },
+            [BREAKPOINTS.lg]: { width: 4 / 12 },
+          }}
         >
           1
-        </Flexoid.Cell>
-        <Flexoid.Cell
-          size={[
-            {
-              width: 2 / 12,
-              '@media(min-width: 420px)': { size: 3 / 12 },
-              '@media(min-width: 920px)': { size: 4 / 12 },
-              '@media(min-width: 1120px)': { size: 5 / 12 },
-            },
-          ]}
+        </Flexoid.Box>
+        <Flexoid.Box
+          width={{
+            width: 2 / 12,
+            [BREAKPOINTS.sm]: { width: 3 / 12 },
+            [BREAKPOINTS.md]: { width: 4 / 12 },
+            [BREAKPOINTS.lg]: { width: 5 / 12 },
+          }}
         >
           2
-        </Flexoid.Cell>
-        <Flexoid.Cell width={2 / 12}>3</Flexoid.Cell>
+        </Flexoid.Box>
+        <Flexoid.Box width={2 / 12}>3</Flexoid.Box>
       </Flexoid.Block>
     </div>
   )

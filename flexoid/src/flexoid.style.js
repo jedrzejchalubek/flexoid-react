@@ -1,32 +1,33 @@
-import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 
-import { mqResolver, mqCompose } from './utils/mq'
+import { mqRenderer } from './utils/mq'
 
 export const Block = styled.div`
   display: flex;
 
   ${({ justify }) =>
     justify &&
-    css`
-      justify-content: ${justify};
-    `}
+    mqRenderer(
+      'justify',
+      justify,
+      value => `
+        justify-content: ${value};
+      `
+    )}
 `
 
-export const Cell = styled.div`
+export const Box = styled.div`
   flex: 1;
   max-width: 100%;
 
-  ${({ size }) =>
-    mqResolver('size', size).map(mqRender =>
-      mqRender((mq, value) =>
-        mqCompose(
-          mq,
-          `
-            flex-basis: ${value * 100}%;
-            max-width: ${value * 100}%;
-          `
-        )
-      )
+  ${({ width }) =>
+    width &&
+    mqRenderer(
+      'width',
+      width,
+      value => `
+        flex-basis: ${value * 100}%;
+        max-width: ${value * 100}%;
+      `
     )}
 `

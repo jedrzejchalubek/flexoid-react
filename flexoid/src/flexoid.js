@@ -6,11 +6,11 @@ const Block = ({ justify, children }) => {
   return <Style.Block justify={justify}>{children}</Style.Block>
 }
 
-const Cell = ({ size, children }) => {
-  return <Style.Cell size={size}>{children}</Style.Cell>
+const Box = ({ width, children }) => {
+  return <Style.Box width={width}>{children}</Style.Box>
 }
 
 export default {
   Block,
-  Cell,
+  Box,
 }
