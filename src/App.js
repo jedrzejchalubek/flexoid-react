@@ -6,7 +6,7 @@ import BREAKPOINTS from './settings/breakpoints'
 export default function App() {
   return (
     <div>
-      <Flexoid.Block
+      <Flexoid.Flex
         justify={{
           [BREAKPOINTS.sm]: { justify: 'center' },
           [BREAKPOINTS.md]: { justify: 'flex-end' },
@@ -33,7 +33,7 @@ export default function App() {
           2
         </Flexoid.Box>
         <Flexoid.Box width={2 / 12}>3</Flexoid.Box>
-      </Flexoid.Block>
+      </Flexoid.Flex>
     </div>
   )
 }

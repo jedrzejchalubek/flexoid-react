@@ -2,8 +2,8 @@ import React from 'react'
 
 import * as Style from './flexoid.style'
 
-const Block = ({ justify, children }) => {
-  return <Style.Block justify={justify}>{children}</Style.Block>
+const Flex = ({ justify, children }) => {
+  return <Style.Flex justify={justify}>{children}</Style.Flex>
 }
 
 const Box = ({ width, children }) => {
@@ -11,6 +11,6 @@ const Box = ({ width, children }) => {
 }
 
 export default {
-  Block,
+  Flex,
   Box,
 }

@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 
 import { mqRenderer } from './utils/mq'
 
-export const Block = styled.div`
+export const Flex = styled.div`
   display: flex;
 
   ${({ justify }) =>
