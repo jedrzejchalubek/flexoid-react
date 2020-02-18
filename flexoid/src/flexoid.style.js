@@ -14,6 +14,26 @@ export const Flex = styled.div`
         justify-content: ${value};
       `
     )}
+
+  ${({ align }) =>
+    align &&
+    mqRenderer(
+      'align',
+      align,
+      value => `
+        align-items: ${value};
+      `
+    )}
+
+  ${({ direction }) =>
+    direction &&
+    mqRenderer(
+      'direction',
+      direction,
+      value => `
+        flex-direction: ${value};
+      `
+    )}
 `
 
 export const Box = styled.div`

@@ -2,8 +2,12 @@ import React from 'react'
 
 import * as Style from './flexoid.style'
 
-const Flex = ({ justify, children }) => {
-  return <Style.Flex justify={justify}>{children}</Style.Flex>
+const Flex = ({ justify, align, direction, children }) => {
+  return (
+    <Style.Flex justify={justify} align={align} direction={direction}>
+      {children}
+    </Style.Flex>
+  )
 }
 
 const Box = ({ width, children }) => {

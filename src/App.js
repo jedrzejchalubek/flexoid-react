@@ -1,38 +1,37 @@
 import React from 'react'
-import Flexoid from '../flexoid'
+import Flexoid, { breakpointable } from '../flexoid'
 
 import BREAKPOINTS from './settings/breakpoints'
+
+const mq = breakpointable(Object.values(BREAKPOINTS))
 
 export default function App() {
   return (
     <div>
       <Flexoid.Flex
-        justify={{
-          [BREAKPOINTS.sm]: { justify: 'center' },
-          [BREAKPOINTS.md]: { justify: 'flex-end' },
-        }}
+        {...mq({
+          justify: [null, 'flex-end', 'center'],
+          direction: [null, null, 'row-reverse'],
+        })}
       >
+        <Flexoid.Box width={1 / 24}>1</Flexoid.Box>
         <Flexoid.Box
           width={{
-            width: 1 / 12,
-            [BREAKPOINTS.sm]: { width: 2 / 12 },
-            [BREAKPOINTS.md]: { width: 3 / 12 },
-            [BREAKPOINTS.lg]: { width: 4 / 12 },
-          }}
-        >
-          1
-        </Flexoid.Box>
-        <Flexoid.Box
-          width={{
-            width: 2 / 12,
-            [BREAKPOINTS.sm]: { width: 3 / 12 },
-            [BREAKPOINTS.md]: { width: 4 / 12 },
-            [BREAKPOINTS.lg]: { width: 5 / 12 },
+            width: 1 / 24,
+            [BREAKPOINTS.sm]: { width: 2 / 24 },
+            [BREAKPOINTS.md]: { width: 3 / 24 },
+            [BREAKPOINTS.lg]: { width: 4 / 24 },
           }}
         >
           2
         </Flexoid.Box>
-        <Flexoid.Box width={2 / 12}>3</Flexoid.Box>
+        <Flexoid.Box
+          {...mq({
+            width: [3 / 24, 4 / 24, 5 / 24, 6 / 24],
+          })}
+        >
+          3
+        </Flexoid.Box>
       </Flexoid.Flex>
     </div>
   )
