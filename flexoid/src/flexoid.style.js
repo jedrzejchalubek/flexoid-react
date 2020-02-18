@@ -1,3 +1,4 @@
+import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 
 import { mqRenderer } from './utils/mq'
@@ -17,22 +18,26 @@ export const Flex = styled.div`
 
   ${({ align }) =>
     align &&
-    mqRenderer(
-      'align',
-      align,
-      value => `
+    css(
+      mqRenderer(
+        'align',
+        align,
+        value => `
         align-items: ${value};
       `
+      )
     )}
 
   ${({ direction }) =>
     direction &&
-    mqRenderer(
-      'direction',
-      direction,
-      value => `
+    css(
+      mqRenderer(
+        'direction',
+        direction,
+        value => `
         flex-direction: ${value};
       `
+      )
     )}
 `
 
@@ -42,12 +47,14 @@ export const Box = styled.div`
 
   ${({ width }) =>
     width &&
-    mqRenderer(
-      'width',
-      width,
-      value => `
+    css(
+      mqRenderer(
+        'width',
+        width,
+        value => `
         flex-basis: ${value * 100}%;
         max-width: ${value * 100}%;
       `
+      )
     )}
 `
